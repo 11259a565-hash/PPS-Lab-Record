@@ -6,5 +6,5 @@ int main()
     scanf("%d%d",&a,&b);
     sum=a+b;
     printf("Sum of %d and %d is %d",a,b,sum);
-    return 0;
+return 0;
 }
