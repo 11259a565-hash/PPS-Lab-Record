@@ -1,17 +1,39 @@
 #include <stdio.h>
+
 int main() {
-    int a[100], n, i, j, temp;
+    int n, i, key, low, high, mid, found = 0;
+    int a[100];
+
     printf("Enter number of elements: ");
     scanf("%d", &n);
-    for (i = 0; i < n; i++) scanf("%d", &a[i]);
-    for (i = 0; i < n - 1; i++) {
-        for (j = 0; j < n - i - 1; j++) {
-            if (a[j] > a[j + 1]) {
-                temp = a[j]; a[j] = a[j + 1]; a[j + 1] = temp;
-            }
+
+    printf("Enter %d elements in ASCENDING order:\n", n);
+    for (i = 0; i < n; i++) {
+        scanf("%d", &a[i]);
+    }
+    printf("Enter the value to find: ");
+    scanf("%d", &key);
+
+    low = 0;
+    high = n - 1;
+
+    while (low <= high) {
+        mid = (low + high) / 2;
+
+        if (a[mid] == key) {
+            printf("Element found at index %d\n", mid);
+            found = 1;
+            break;
+        }
+        else if (a[mid] < key) {
+            low = mid + 1;
+        }
+        else {
+            high = mid - 1;
         }
     }
-    printf("Sorted array: ");
-    for (i = 0; i < n; i++) printf("%d ", a[i]);
+    if (!found) {
+        printf("Element is not present in the array.\n");
+    }
     return 0;
 }
