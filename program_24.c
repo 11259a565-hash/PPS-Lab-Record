@@ -1,12 +1,23 @@
 #include <stdio.h>
-void swapValue(int x, int y) { int t = x; x = y; y = t; }
-void swapRef(int *x, int *y) { int t = *x; *x = *y; *y = t; }
+void swap(int x, int y) {
+    int temp;
+    temp = x;
+    x = y;
+    y = temp;
+    printf("\nInside Function (after swap attempt): a = %d, b = %d", x, y);
+}
 
 int main() {
-    int a = 10, b = 20;
-    swapValue(a, b);
-    printf("By Value: %d, %d\n", a, b); // No change
-    swapRef(&a, &b);
-    printf("By Reference: %d, %d\n", a, b); // Swapped
+    int a, b;
+
+    printf("Enter two numbers (a and b): ");
+    scanf("%d %d", &a, &b);
+
+    printf("\nBefore calling swap function: a = %d, b = %d", a, b);
+    swap(a, b);
+
+    printf("\nAfter calling swap function (in main): a = %d, b = %d", a, b);
+    printf("\n\nNote: The values in main remain unchanged in Call by Value.");
+
     return 0;
 }
