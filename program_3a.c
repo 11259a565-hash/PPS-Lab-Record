@@ -7,3 +7,4 @@ int main() {
   printf("The area of circle is %.2f",A);
   return 0;
 }
+
